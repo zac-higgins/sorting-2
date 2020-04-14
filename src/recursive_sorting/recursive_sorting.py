@@ -41,6 +41,26 @@ def merge_sort( arr ):
 
     return arr
 
+# Quick Sort
+import random
+numbers = random.sample(range(200), 12)
+
+def quick_sort(arr):
+    if len(arr) > 0:
+        # pivot = random.choice(arr)
+        pivot = arr[0]
+        smaller = []
+        larger = []
+
+        for i in range(1, len(arr)):
+            if arr[i] < pivot:
+                smaller.append(arr[i])
+            else:
+                larger.append(arr[i])
+
+        return quick_sort(smaller) + [pivot] + quick_sort(larger)
+    return arr
+
 
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
